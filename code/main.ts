@@ -10,7 +10,7 @@ kaboom({
 // load sprites
 loadSprite("bug", "sprites/bug.png")
 loadSprite("coffee", "sprites/coffeeMug.png")
-loadSprite("harold", "sprites/harold.png")
+loadSprite("player", "sprites/player.png")
 
 // load music
 loadSound("score", "sounds/score.mp3")
@@ -28,28 +28,33 @@ let backgroundMusic;
 
 // display score
 const displayScore=()=>{
-  destroy(scoreText)
+  if(scoreText){
+    destroy(scoreText) ;
+  }
   // score counter
   scoreText = add([
     text("SCORE: "+ SCORE),
     scale(1),
     pos(width()-181,21),
-    ])
+    color(10,10,255)
+    ]);
 }
 
 // function to play music
 const playBg=()=>{
-  if(!bg){
-    backgroundMusic = play("background",{volume:0.7})
-    bg=true;
+  if(!backgroundMusic){
+    backgroundMusic = play("background",{
+      volume:0.5,
+      loop: true 
+    });
   }
 }
 // Add player
 const player = add([
-  sprite("harold"),  // renders as a sprite
+  sprite("player"),  // renders as a sprite
   pos(120, 80),    // position in world
   area(),          // has a collider
-  scale(0.13),          // responds to physics and gravity
+  scale(0.13),        
 ])
 
 // Add events to player
@@ -80,15 +85,15 @@ setInterval(() => {
     let x = rand(0, width());
     let y = height()
 
-    let c = add([
+    let bug = add([
       sprite("bug"),  // renders as a sprite
       pos(x, y),    // position in world
       area(),          // has a collider
       scale(0.13),          // responds to physics and gravity
       "bug" // tag for rendering collision
     ])
-    c.onUpdate(() => {
-      c.moveTo(c.pos.x, c.pos.y - BSPEED)
+    bug.onUpdate(() => {
+      bug.moveTo(bug.pos.x, bug.pos.y - BSPEED)
     })
   }
 
@@ -96,42 +101,49 @@ setInterval(() => {
   let x = rand(0, width());
   let y = height()
 
-  let c = add([
+  let coffee = add([
     sprite("coffee"),  // renders as a sprite
     pos(x, y),    // position in world
     area(),          // has a collider
     scale(0.30),          // responds to physics and gravity
     "coffee" // tag for rendering collision
   ])
-  c.onUpdate(() => {
-    c.moveTo(c.pos.x, c.pos.y - BSPEED)
+  coffee.onUpdate(() => {
+    coffee.moveTo(coffee.pos.x, coffee.pos.y - BSPEED)
   })
   if(BSPEED <13){
     BSPEED +=1;
   }
 }, 4000)
 
-player.onCollide("bug",()=>{
-  backgroundMusic.volume(0.1)
+player.onCollide("bug", () => {
+  if(backgroundMusic){
+    backgroundMusic.stop()
+  }
+  // backgroundMusic.volume(0.2) // 
   play("game over")
   destroy(player)
-  addKaboom(player.pos); // kaboom effect at player position
-
+  addKaboom(player.pos)
+  scoreText = add([
+      text("Game Over"),
+      scale(3),
+      pos(10, 21),
+      color(10, 10, 255)
+  ])
 })
   
 player.onCollide("coffee",(coffee)=>{
-  backgroundMusic.volume(0.1)
+
   play("sip",{
     volume:2
   })
-  destroy(coffee)
+  destroy(coffee);
   SCORE +=1
 
   displayScore()
-  wait(3,()=>{
-    backgroundMusic.volume(0.8)
-    
-  })
-})
+  
+  
+});
 
+ // Display Score
 displayScore();
