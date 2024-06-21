@@ -13,6 +13,7 @@ kaboom({
 loadSprite("bug", "sprites/bug.png")
 loadSprite("coffee", "sprites/coffeeMug.png")
 loadSprite("player", "sprites/player.png")
+// loadSprite("background","sprites/backgroundImage.jpg")
 
 // load music
 loadSound("score", "sounds/score.mp3")
@@ -46,7 +47,7 @@ const displayScore = () => {
   // score counter
   scoreText = add([
     text("SCORE: " + SCORE,{
-      font:"serif"
+      font:"sans"
     }),
     scale(1),
     pos(width() - 181, 48),
@@ -116,6 +117,12 @@ const resetGame=()=>{
   registerCollisionHandlers();
 };
 
+// add backgound image
+// add([
+//   sprite("background", {width:width(),height:height()}),
+//   pos(0,0),
+//   z(-1)
+// ])
 // Add player
 player = add([
   sprite("player"),  // renders as a sprite
