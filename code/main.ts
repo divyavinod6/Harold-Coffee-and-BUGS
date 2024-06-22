@@ -79,8 +79,26 @@ const playBg = () => {
   }
 }
 
+// diplay game over
+const displayGameOver =()=>{
+  if(gameOverText){
+    destroy(gameOverText)
+  }
+  gameOverText=add([
+    text("GAME OVER",{
+      font:"serif",
+      size:48,
+    }),
+    scale(3),
+    pos(10,21),
+    color(10,10,255)    
+  ]);
+}
 // Reset function
 const resetGame=()=>{
+  if(gameOverText){
+    destroy(gameOverText);
+  }
   // update high score if current score is higher
   if(SCORE > HIGH_SCORE){
     HIGH_SCORE=SCORE;
@@ -106,9 +124,7 @@ const resetGame=()=>{
     scale(0.13)
   ]);
 
-  if(gameOverText){
-    destroy(gameOverText);
-  }
+  
   // Display initial score and high score
   displayScore();
   displayHighScore();  
@@ -195,21 +211,22 @@ const spawnObejcts=() => {
 
 // player collision with bug
 const registerCollisionHandlers = ()=>{
-  player.onCollide("bug", () => {
+  player.onCollide("bug", (b) => {
     if (backgroundMusic) {
       backgroundMusic.stop()
     }
     play("game over")
     addKaboom(player.pos);
     // diplay game over text
-    gameOverText=add([
-      text("Game Over",{
-        font:"serif"
-      }),
-      scale(3),
-      pos(10,21),
-      color(10,10,255)
-    ]);
+    displayGameOver();
+    // gameOverText=add([
+    //   text("Game Over",{
+    //     font:"serif"
+    //   }),
+    //   scale(3),
+    //   pos(10,21),
+    //   color(10,10,255)
+    // ]);
     // reset game after short delay
     wait(2,()=>{
       resetGame();
