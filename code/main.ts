@@ -13,7 +13,7 @@ kaboom({
 loadSprite("bug", "sprites/bug.png")
 loadSprite("coffee", "sprites/coffeeMug.png")
 loadSprite("player", "sprites/player.png")
-// loadSprite("background","sprites/backgroundImage.jpg")
+loadSprite("background","sprites/backgroundImage.jpg")
 
 // load music
 loadSound("score", "sounds/score.mp3")
@@ -65,7 +65,7 @@ const displayHighScore = () => {
       font:"serif"
     }),
     scale(1),
-    pos(width() - 260, 21),
+    pos(width() - 270, 21),
     color(10, 10, 255)
   ]);
 }
@@ -118,11 +118,12 @@ const resetGame=()=>{
 };
 
 // add backgound image
-// add([
-//   sprite("background", {width:width(),height:height()}),
-//   pos(0,0),
-//   z(-1)
-// ])
+add([
+  sprite("background", {width:width(),height:height()}),
+  pos(0,0),
+  z(-1)
+])
+
 // Add player
 player = add([
   sprite("player"),  // renders as a sprite
