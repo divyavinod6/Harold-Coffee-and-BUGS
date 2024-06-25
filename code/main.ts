@@ -89,7 +89,7 @@ const displayGameOver = () => {
       font: "sans",
       size: 48,
     }),
-    scale(3),
+    scale(1),
     pos(10, 21),
     color(10, 10, 255)
   ]);
