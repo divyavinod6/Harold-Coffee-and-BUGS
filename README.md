@@ -1,4 +1,4 @@
-# Harold Coffee Bugs
+# Harold Coffee and Bugs
 
 ## Introduction
 
