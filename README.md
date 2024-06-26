@@ -1,3 +1,26 @@
+# Harold Coffee Bugs
+
+## Introduction
+
+Presenting a simple movement based score ranking game developed on Replit via kaboom js. The game features a player moving in any direction to collide with bugs or coffee.
+
+## Tech Stack
+
+- **Programming Language**: Javascript
+- **Graphics Library**: [Kaboom js](https://kaboomjs.com/)
+
+# Controls and Rules
+
+- Player can move left,right, up, down and diagonal
+- Left/Right Arrow Keys: Lateral movement.
+- Up/Down Arrow Keys: Vertical movement
+- Up+left/right,Down+left/right: Diagonal movement
+
+# Point System
+
+- Hit with Coffee: +1 points
+
+## About Kaboom
 ![kaboom](learn/kaboom.png)
 
 Welcome! Kaboom is a JavaScript library that helps you make games fast and fun :D
