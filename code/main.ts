@@ -13,7 +13,8 @@ kaboom({
 loadSprite("bug", "sprites/bug.png")
 loadSprite("coffee", "sprites/coffeeMug.png")
 loadSprite("player", "sprites/player.png")
-loadSprite("background", "sprites/backgroundImage.jpg")
+// loadSprite("background", "sprites/backgroundImage.jpg")
+loadSprite("background", "sprites/background_test1.jpg")
 
 // load music
 loadSound("score", "sounds/score.mp3")
