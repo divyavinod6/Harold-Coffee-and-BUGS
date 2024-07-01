@@ -225,7 +225,7 @@ add([
 // Add player
 player = add([
   sprite("player"),  // renders as a sprite
-  pos(120, 80),    // position in world
+  pos(120, 100),    // position in world
   area(),          // has a collider
   scale(0.13),
 ])
