@@ -5,16 +5,19 @@ document.title = 'Coder, Coffee and Bugs'
 
 // initialize context
 kaboom({
-  font: "sans",
+  font: "font",
   background: [210, 210, 155],
 });
+
+// load custom font
+loadFont("mono","font/monogram.ttf");
 
 // load sprites
 loadSprite("bug", "sprites/bug.png")
 loadSprite("coffee", "sprites/coffeeMug.png")
 loadSprite("player", "sprites/player.png")
 // loadSprite("background", "sprites/backgroundImage.jpg")
-loadSprite("background", "sprites/background_test1.jpg")
+loadSprite("background", "sprites/background_test2.jpg")
 
 // load music
 loadSound("score", "sounds/score.mp3")
@@ -32,6 +35,7 @@ let scoreText;
 let highScoreText;
 let player;
 let gameOverText;
+const TEXT_COLOR=rgb(148, 167, 115);
 
 
 // load high score from local storage
@@ -48,11 +52,11 @@ const displayScore = () => {
   // score counter
   scoreText = add([
     text("SCORE: " + SCORE, {
-      font: "sans"
+      font: "mono"
     }),
-    scale(1),
-    pos(width() - 181, 48),
-    color(10, 10, 255)
+    scale(1.5),
+    pos(width() - 175, 40),
+    color(TEXT_COLOR)
   ]);
 }
 
@@ -63,11 +67,11 @@ const displayHighScore = () => {
   }
   highScoreText = add([
     text("HIGH SCORE: " + HIGH_SCORE, {
-      font: "sans"
+      font: "mono"
     }),
-    scale(1),
-    pos(width() - 270, 21),
-    color(10, 10, 255)
+    scale(1.5),
+    pos(width() - 275, 3),
+    color(TEXT_COLOR)
   ]);
 }
 // function to play background music
@@ -87,12 +91,12 @@ const displayGameOver = () => {
   }
   gameOverText = add([
     text("GAME OVER", {
-      font: "sans",
+      font: "mono",
       size: 48,
     }),
-    scale(1),
-    pos(10, 21),
-    color(10, 10, 255)
+    scale(2),
+    pos(10, 4),
+    color(TEXT_COLOR)
   ]);
 }
 // Reset function
@@ -120,7 +124,7 @@ const resetGame = () => {
 
   player = add([
     sprite("player"),  // renders as a sprite
-    pos(120, 80),    // position in world
+    pos(120, 140),    // position in world
     area(),          // has a collider
     scale(0.13)
   ]);
@@ -213,6 +217,23 @@ const spawnLoop = () => {
   });
 };
 
+function checkOutofBounds(){
+  get("bug").forEach((bug)=>{
+    if(bug.pos.y <= 100){
+      destroy(bug);
+    }
+  });
+  get("coffee").forEach((coffee)=>{
+    if(coffee.pos.y <= 100){
+      destroy(coffee);
+    }
+  });
+}
+
+// gmae update loop
+onUpdate(()=>{
+  checkOutofBounds();
+})
 
 // initialise functions to set up game
 // add backgound image
@@ -225,29 +246,31 @@ add([
 // Add player
 player = add([
   sprite("player"),  // renders as a sprite
-  pos(120, 100),    // position in world
+  pos(120, 140),    // position in world
   area(),          // has a collider
   scale(0.13),
 ])
 
 // Add events to player
 onKeyDown("left", () => {
-  playBg()
+  playBg();
   player.move(-SPEED, 0)
 })
 
 onKeyDown("right", () => {
-  playBg()
+  playBg();
   player.move(SPEED, 0)
 })
 
 onKeyDown("up", () => {
-  playBg()
-  player.move(0, -SPEED)
+  playBg();
+  if(player.pos.y >100){
+    player.move(0, -SPEED);
+  }
 })
 
 onKeyDown("down", () => {
-  playBg()
+  playBg();
   player.move(0, SPEED)
 })
 
