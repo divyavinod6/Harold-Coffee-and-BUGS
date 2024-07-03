@@ -31,6 +31,8 @@ This is an intro tutorial that will cover the basic concepts and make a very sim
 
 (scroll to bottom to see / copy the full game code)
 
+
+
 Let's start by initializing the context with the `kaboom()` function.
 
 ```js
