@@ -189,7 +189,7 @@ const registerCollisionHandlers = () => {
     addKaboom(player.pos);
     // diplay game over text
     displayGameOver();
-    wait(2, () => {
+    wait(4, () => {
       resetGame();
       if (backgroundMusic) {  // change
         backgroundMusic.play()
