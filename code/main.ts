@@ -181,7 +181,7 @@ const spawnObejcts = () => {
 
 // player collision with bug
 const registerCollisionHandlers = () => {
-  player.onCollide("bug", (b) => {
+  player.onCollide("bug", () => {
     if (backgroundMusic) {
       backgroundMusic.stop()
     }
@@ -189,7 +189,7 @@ const registerCollisionHandlers = () => {
     addKaboom(player.pos);
     // diplay game over text
     displayGameOver();
-    wait(4, () => {
+    wait(2, () => {
       resetGame();
       if (backgroundMusic) {  // change
         backgroundMusic.play()
@@ -255,6 +255,7 @@ player = add([
 onKeyDown("left", () => {
   playBg();
   player.move(-SPEED, 0)
+  
 })
 
 onKeyDown("right", () => {
