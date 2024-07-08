@@ -254,7 +254,10 @@ player = add([
 // Add events to player
 onKeyDown("left", () => {
   playBg();
-  player.move(-SPEED, 0)
+  if(player.pos.x > 0){
+    player.move(-SPEED, 0)
+    
+  }
   
 })
 
