@@ -263,7 +263,10 @@ onKeyDown("left", () => {
 
 onKeyDown("right", () => {
   playBg();
-  player.move(SPEED, 0)
+  if(player.pos.x + player.width < width()){
+    player.move(SPEED, 0)
+    
+  }
 })
 
 onKeyDown("up", () => {
