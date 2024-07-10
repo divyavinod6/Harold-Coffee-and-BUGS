@@ -26,7 +26,7 @@ loadSound("background", "sounds/background.mp3")
 loadSound("sip", "sounds/sip.mp3")
 
 // define game variables
-let SPEED = 620;
+let SPEED = 621;
 let BSPEED = 2; // bugs speed
 let SCORE = 0;
 let HIGH_SCORE = 0;
