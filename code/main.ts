@@ -26,7 +26,7 @@ loadSound("background", "sounds/background.mp3")
 loadSound("sip", "sounds/sip.mp3")
 
 // define game variables
-let SPEED = 621;
+let SPEED = 620;
 let BSPEED = 2; // bugs speed
 let SCORE = 0;
 let HIGH_SCORE = 0;
@@ -263,7 +263,7 @@ onKeyDown("left", () => {
 
 onKeyDown("right", () => {
   playBg();
-  if(player.pos.x + player.width < width()){
+  if(player.pos.x + player.width *player.scale.x < width()){
     player.move(SPEED, 0)
     
   }
