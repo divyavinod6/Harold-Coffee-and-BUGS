@@ -16,7 +16,6 @@ loadFont("mono","font/monogram.ttf");
 loadSprite("bug", "sprites/bug.png")
 loadSprite("coffee", "sprites/coffeeMug.png")
 loadSprite("player", "sprites/player.png")
-// loadSprite("background", "sprites/backgroundImage.jpg")
 loadSprite("background", "sprites/background_test2.jpg")
 
 // load music
@@ -278,7 +277,9 @@ onKeyDown("up", () => {
 
 onKeyDown("down", () => {
   playBg();
-  player.move(0, SPEED)
+  if(player.pos.y +player.height*player.scale.y < height()){
+    player.move(0, SPEED);
+  }
 })
 
 displayScore();
