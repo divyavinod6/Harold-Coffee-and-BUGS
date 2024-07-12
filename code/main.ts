@@ -42,7 +42,15 @@ if (localStorage.getItem("highScore")) {
   HIGH_SCORE = parseInt(localStorage.getItem("highScoreText") || "0", 10);
 }
 
-
+// display title
+add([
+  text("Coder, Coffee and Bugs",{
+    font:"mono"
+  }),
+  scale(1.5),
+  pos(width()/2-150,40),
+  color(TEXT_COLOR)
+])
 // display score
 const displayScore = () => {
   if (scoreText) {
