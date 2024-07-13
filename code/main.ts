@@ -47,8 +47,8 @@ add([
   text("Coder, Coffee and Bugs",{
     font:"mono"
   }),
-  scale(1.5),
-  pos(width()/2-150,40),
+  scale(2),
+  pos(width()/2-250,20),
   color(TEXT_COLOR)
 ])
 // display score
