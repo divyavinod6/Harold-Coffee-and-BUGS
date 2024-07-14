@@ -22,6 +22,7 @@ Presenting a simple movement based score ranking game developed on Replit via ka
 
 ## Scrennshots
 ![Title Screen](https://raw.githubusercontent.com/divyavinod6/Harold-Coffee-and-BUGS/main/Screenshots/output1.png)
+
 ![Play Screen](https://raw.githubusercontent.com/divyavinod6/Harold-Coffee-and-BUGS/main/Screenshots/output2.png)
 
 ## About Kaboom
