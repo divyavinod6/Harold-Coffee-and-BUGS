@@ -9,16 +9,20 @@ Presenting a simple movement based score ranking game developed on Replit via ka
 - **Programming Language**: Javascript
 - **Graphics Library**: [Kaboom js](https://kaboomjs.com/)
 
-# Controls and Rules
+## Controls and Rules
 
 - Player can move left,right, up, down and diagonal
 - Left/Right Arrow Keys: Lateral movement.
 - Up/Down Arrow Keys: Vertical movement
 - Up+left/right,Down+left/right: Diagonal movement
 
-# Point System
+## Point System
 
 - Hit with Coffee: +1 points
+
+## Scrennshots
+![Title Screen](https://raw.githubusercontent.com/divyavinod6/Harold-Coffee-and-BUGS/main/Screenshots/output1.png)
+![Play Screen](https://raw.githubusercontent.com/divyavinod6/Harold-Coffee-and-BUGS/main/Screenshots/output2.png)
 
 ## About Kaboom
 ![kaboom](learn/kaboom.png)
