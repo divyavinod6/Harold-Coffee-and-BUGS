@@ -16,6 +16,8 @@ Presenting a simple movement based score ranking game developed on Replit via ka
 - Up/Down Arrow Keys: Vertical movement
 - Up+left/right,Down+left/right: Diagonal movement
 
+To play:- Click on replit link under "About", "Run" main.ts, go to "Webview" on left hand side and open in new tab. You are Ready To Play.
+
 ## Point System
 
 - Hit with Coffee: +1 points
